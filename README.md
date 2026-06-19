@@ -1,92 +1,48 @@
-## **Vrinda Store Sales Analysis**
+# Vrinda Store Sales Dashboard
 
----
+## What This Is
 
-### **Project Overview**
+A Power BI dashboard built to make sense of Vrinda Store's 2022 sales data. The store sells across 7 platforms — Amazon, Flipkart, Myntra, Ajio, Meesho, Nalli, and a few others — so having everything in one place made it a lot easier to see what was actually going on with revenue, returns, and who's buying what.
 
-This project focuses on analyzing sales data for *Vrinda Store*, an online retail business operating across multiple e-commerce platforms. The goal is to transform raw sales data into meaningful insights that support data-driven decision-making using data analysis and visualization techniques.
+## Tech Stack
 
----
+- **Power BI Desktop** — main tool for building the dashboard and writing DAX measures
+- **Microsoft Excel (.xlsx)** — where the raw data lives
+- **Power Query (M)** — used to clean and shape the data before loading it in
+- **Bing Maps (Power BI visual)** — to plot revenue across Indian states on a map
 
-### **Objective**
+## Data Source
 
-* To analyze sales performance across different channels
-* To understand customer demographics and purchasing behavior
-* To identify top-performing product categories
-* To uncover regional sales trends
-* To build an interactive dashboard for business insights
+Everything comes from a single Excel file, `Vrinda_Store.xlsx`, with just one sheet — `Vrinda Store`. It has 31,047 rows and 21 columns covering the full year from January to December 2022.
 
----
+| Field | What It Holds |
+|---|---|
+| `Order ID`, `Cust ID`, `SKU` | Identifiers for orders, customers, and products |
+| `Gender`, `Age`, `Age Group` | Customer info — age groups are Adult, Teenager, and Senior |
+| `Date`, `Month` | When the order was placed |
+| `Status` | Whether it was Delivered, Cancelled, Returned, or Refunded |
+| `Channel` | Which platform the order came from |
+| `Category`, `Size`, `Qty` | Product details — categories include Kurta, Set, Western Dress, Top, Saree, Blouse, Ethnic Dress, and Bottom |
+| `Amount`, `currency` | Order value in INR |
+| `ship-city`, `ship-state`, `ship-postal-code`, `ship-country` | Delivery location — covers 50 states and 2,600+ cities across India |
+| `B2B` | Whether the buyer was a business or an individual |
 
-### **Key Metrics**
+Excel File directly connected to Power BI.
 
-* **Total Revenue:** ~₹21 Million
-* **Total Orders:** ~31,000
-* **Average Order Value (AOV):** ~₹682
-* **Sales Channels:** 7 platforms
+## What the Dashboard Covers
 
----
+The report has three pages, each looking at things from a different angle.
 
-### **Insights Generated**
+**Page 1 — Sales & Demographics**
 
-#### **1. Channel Performance**
+This page answers the basic questions: what's selling, and who's buying it? Women placed significantly more orders than men (21,553 vs 9,494), Adults are the biggest age group, and Sets along with Kurtas drive the most revenue. There's a treemap, a bar chart breaking down revenue by product, and donut and column charts for gender and age group splits. You can slice by Category or Gender to dig into specifics.
 
-* Amazon contributes the highest revenue (~35.5%)
-* Myntra and Flipkart are also major contributors
-* Other platforms (Ajio, Meesho, Nalli) contribute smaller shares
+**Page 2 — Fulfillment & Returns**
 
-#### **2. Customer Demographics**
+The headline number here is a 92% fulfillment rate, which is solid. Cancellations sit at 3% and refunds at 2%. Amazon has the highest number of cancelled deliveries by a notable margin, and the trend line shows returns climbing toward the end of the year — something worth keeping an eye on heading into the next year.
 
-* Adults (~50%) are the primary customers
-* Teenagers (~30%) and seniors (~20%) form secondary segments
+**Page 3 — Revenue & Geography**
 
-#### **3. Gender Analysis**
+Total revenue for 2022 came in at ₹21M across 28K orders, with an average order value of ₹682. Revenue peaked early in the year and gradually declined through Q3 and Q4. Amazon leads on order volume, followed by Myntra and Flipkart. The map shows which Indian states contributed the most revenue.
 
-* Women contribute ~64% of total revenue
-* Men contribute ~36%
-
-#### **4. Product Performance**
-
-* Set/Combo category is the top-performing segment (~₹14M revenue)
-
-#### **5. Geographical Trends**
-
-* Bangalore is the highest revenue-generating city
-
-#### **6. Customer Behavior**
-
-* Teenagers prefer Ajio
-* Seniors prefer Flipkart
-* Women show higher engagement on Meesho
-* Men use multiple platforms more evenly
-
----
-
-### **🛠️ Tools & Technologies**
-
-* **Power BI** – Dashboard creation and visualization
-* **Microsoft Excel** – Data cleaning and preprocessing
-
----
-
-### **Dashboard Preview**
-
-*(Add screenshots of your Power BI dashboard here)*
-
----
-
-### **Key Business Takeaways**
-
-* Strong dependency on Amazon and Myntra for revenue
-* Female customers are the dominant buyers
-* Set/Combo products drive the majority of sales
-* Bangalore is a key high-performing market
-* Customer preferences vary significantly across platforms
-
----
-
-### **Contribution**
-
-Contributions are welcome. Feel free to fork this repository and submit pull requests.
-
-This project is for educational purposes and does not include any proprietary or sensitive business data.
+All three pages share the same slicers — Category, Gender, Channel, and Status — so filtering on one page carries context across the whole report.
